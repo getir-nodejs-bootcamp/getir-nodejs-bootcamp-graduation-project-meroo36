@@ -3,6 +3,7 @@ const app = express();
 const loader = require("./loaders/index")
 const bodyParser = require("body-parser");
 const routes = require("./routes/index");
+const mongoose = require("mongoose");
 
 
 loader(app);
@@ -15,6 +16,4 @@ app.all("*", (req, res) => {
     res.status(404).send("Route not found");
 });
 
-module.exports = {
-    app,
-};
+module.exports = app
